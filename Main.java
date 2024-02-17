@@ -7,7 +7,7 @@ public class Main
 {
     public static void main(String[] args) throws Exception {
         NoiseParameters noiseParameters = new NoiseParameters();
-        noiseParameters.setNoiseType(NoiseType.SIMPLEX);
+        noiseParameters.setNoiseType(NoiseType.RANDOM);
 
         NoiseGenerator noiseGenerator = new NoiseGenerator(noiseParameters);
         double[][] noise = noiseGenerator.generateNoise();

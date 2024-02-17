@@ -2,6 +2,7 @@ package Enumerator;
 
 public enum NoiseType
 {
+    RANDOM,
     PERLIN,
     SIMPLEX;
 
@@ -10,6 +11,7 @@ public enum NoiseType
     public String toString()
     {
         return switch (this) {
+            case RANDOM -> "Random";
             case PERLIN -> "Perlin";
             case SIMPLEX -> "Simplex";
         };
@@ -19,6 +21,7 @@ public enum NoiseType
     public static NoiseType fromString(String str)
     {
         return switch (str) {
+            case "Random" -> RANDOM;
             case "Perlin" -> PERLIN;
             case "Simplex" -> SIMPLEX;
             default -> throw new IllegalArgumentException("Invalid noise type: " + str);
@@ -29,8 +32,9 @@ public enum NoiseType
     public int toInt()
     {
         return switch (this) {
-            case PERLIN -> 0;
-            case SIMPLEX -> 1;
+            case RANDOM -> 0;
+            case PERLIN -> 1;
+            case SIMPLEX -> 2;
         };
     }
 
@@ -38,8 +42,9 @@ public enum NoiseType
     public static NoiseType fromInt(int i)
     {
         return switch (i) {
-            case 0 -> PERLIN;
-            case 1 -> SIMPLEX;
+            case 0 -> RANDOM;
+            case 1 -> PERLIN;
+            case 2 -> SIMPLEX;
             default -> throw new IllegalArgumentException("Invalid noise type: " + i);
         };
     }

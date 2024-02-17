@@ -39,6 +39,7 @@ public class NoiseGenerator
     public double[][] generateNoise()
     {
         return switch (noiseParameters.getNoiseType()) {
+            case RANDOM -> RandomNoise.getInstance().generateNoise(noiseParameters);
             case PERLIN -> PerlinNoise.getInstance().generateNoise(noiseParameters);
             case SIMPLEX -> SimplexNoise.getInstance().generateNoise(noiseParameters);
         };
